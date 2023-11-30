@@ -5,9 +5,12 @@
 <controllers>
 
     <controller name="SignIn">
-        <action name="signIn"
+        <action name="signInAlumno"
                 class="org.example.unicon.accions.ConexionAction"/>
+        <action name="signInProfesor"
+                class="org.example.unicon.accions.ConexionActionProf"/>
     </controller>
+
     
     <!-- Environment variable:
     <env-var name="unicon_DEFAULT_YEAR" value="2015"/> 

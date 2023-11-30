@@ -18,7 +18,7 @@ import javax.persistence.*;
             "from Alumno e where e.cifalumno=?1 and e.contrasena = ?2"),
         @NamedQuery(name="Alumno.findByalumn",query="select e from Alumno e where e.nombrealumno like ?1" )
 })
-@Tab(properties = "cifalumno",
+@Tab(properties = "cifalumno, nombrealumno, apellidoalumno, carrera, facultad",
     baseCondition = "${cifalumno}=?",filter= FilterAlumno.class)
 
 public class Alumno {

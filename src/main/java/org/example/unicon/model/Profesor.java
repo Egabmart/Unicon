@@ -3,6 +3,8 @@ package org.example.unicon.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.unicon.filter.FilterProfesor;
+import org.openxava.annotations.Tab;
 
 import javax.persistence.*;
 
@@ -11,6 +13,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "profesor")
+@NamedQueries({
+        @NamedQuery(name="Profesor.findByprofesor",query="select u " +
+                "from Profesor u where u.cifprofesor=?1 and u.contrasenaprofesor = ?2"),
+        @NamedQuery(name="Profesor.findByprofeso",query="select u from Profesor u where u.nombreprofesor like ?1" )
+})
+@Tab(properties = "cifprofesor, nombreprofesor, apellidoprofesor, facultadprofesor",
+        baseCondition = "${cifprofesor}=?",filter= FilterProfesor.class)
+
 public class Profesor {
 
     @Id
